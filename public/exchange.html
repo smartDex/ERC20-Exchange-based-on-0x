@@ -1,0 +1,368 @@
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="stylesheets/dropdown.css">
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-custom">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <a class="navbar-brand" href="#/" ui-sref="/">
+        <img src="./img/nexdex_logo.png" class="" />
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link nav_item">
+                    <label id="img_category_label" class="field" for="img_category" data-value="">
+                      <div id="img_category" class="psuedo_select" name="img_category">
+                          <span class="selected"></span>
+                          <ul id="img_category_options" class="options">
+                          </ul>
+                      </div>
+                    </label>
+                </a>
+            </li>
+            <li class="nav-item">
+                <div id="last_price" class="token_info"></div>
+            </li>
+            <li class="nav-item">
+                <div id="high_vol" class="token_info"></div>
+            </li>
+            <li class="nav-item">
+                <div id="low_vol" class="token_info"></div>
+            </li>
+            <li class="nav-item">
+                <div id="total_vol" class="token_info"></div>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+                <div class="form-group addr" id="oder_ticker_title">
+                    <span style="color:yellow;">Wallet:</span><a id="user_addr" target="_new">Please Sign In..</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <div class="open">
+                    <span class="cls"></span>
+                    <span>
+                        <ul class="sub-menu ">
+                            <li>
+                                <a href="#skills" title="skills">Deposit / WithDrawal</a>
+                            </li>
+                            <li>
+                                <a href="#about" title="about">Accounts</a>
+                            </li>
+                            <li>
+                                <a href="" id="openlogin" title="skills">Sign In</a>
+                            </li>
+                            <li>
+                                <a href="" id="opensignup" title="jobs">Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="#contact" title="contact">Sign Out</a>
+                            </li>
+                        </ul>
+                    </span>
+                    <span class="cls"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="row" id="exchange_container">
+    <div class="main-col col-12 col-xl-3">
+        <div class="component_exchange">
+            <div class="form-group" id="oder_ticker_title">
+                <span>Order Ticker</span>
+                <span class="pull-right">
+                    <div class="btn-group btn-toggle"> 
+                        <button class="btn btn-sm btn-default">Buy</button>
+                        <button class="btn btn-sm btn-danger active">Sell</button>
+                    </div>
+                </span>
+            </div>
+            <div class="form-group" style="margin-top:20px;">
+                <label for="formGroupExampleInput">Amount</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">@exa</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Price</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">@exa</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="datetime3">Expiration</label>
+                <input type="text" class="form-control" id="datetime3" readonly>
+            </div>
+            <div class="form-group">
+                <hr class="style4">
+            </div>
+            <div class="form-group">
+                <label for="">Approx. total: </label> <span class="pull-right">1234.000</span>
+            </div>
+            <div class="form-group text-center">
+                <button type="button" class="btn btn-block btn-info">Place {{}} Order</button>
+            </div>
+            <!-- end of row -->
+        </div>
+        <div class="component_exchange">
+            <div class="form-group" id="oder_ticker_title">
+                <label for="formGroupExampleInput">Your Balance</label>
+            </div>
+            <table class="table table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th width="30%">Asset</th>
+                        <th width="50%" class="text-right">Available Balances</th>
+                        <th width="20%">Unlocked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color:rgb(24, 24, 44);">
+                        <td>WETH</td>
+                        <td class="text-right">1.2342</td>
+                        <td>
+                            <label class="switch">
+                               <input type="checkbox">
+                               <span class="slider round"></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DAI</td>
+                        <td class="text-right">2.31242</td>
+                        <td>
+                            <label class="switch">
+                               <input type="checkbox" checked>
+                               <span class="slider round"></span>
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- end of row -->
+        </div>
+    </div>
+    <div class="main-col col-12 col-xl-6">
+        <div class="charts">
+            <div id="chart-container"></div>
+        </div>
+        <div class="main-col col-12 col-xl-12">
+            <section class="component_exchange" style="height: 260px;">
+                <div class="card__header">
+                    <ul class="nav nav-tabs card__tabs">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#open" ui-sref="stateOfCurrentPage" role="tab" aria-expanded="true">Open Orders</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#filled" ui-sref="stateOfCurrentPage" role="tab" aria-expanded="false">Filled Orders</a></li>
+                    </ul>
+                </div>
+                <div class="card__body" style="overflow-x:auto;">
+                    <section class="market-detail-user-orders tab-content">
+                        <section class="card__tab-pane tab-pane" id="filled" role="tabpanel" aria-expanded="false">
+                            <div style="padding:10px">You have no filled orders for this market.</div>
+                        </section>
+                        <section class="card__tab-pane tab-pane active" id="open" role="tabpanel" aria-expanded="true">
+                            <div class="order-table table__container">
+                                <table class="table table-striped table-responsive">
+                                    <thead class="table__header">
+                                        <tr>
+                                            <th>Type</th>
+                                            <th class="text-right">Amount (WETH)</th>
+                                            <th class="text-right">Price (DAI)</th>
+                                            <th class="text-right pr-4">Total (DAI)</th>
+                                            <th>Expires (UTC)</th>
+                                            <th class="text-center">Status/actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table__body">
+                                        <tr class="table__row">
+                                            <th>Sell</th>
+                                            <td class="text-right">1.000 </td>
+                                            <td class="text-right">123.00000 </td>
+                                            <td class="text-right pr-4">123.00000 </td>
+                                            <td>2018-02-26</td>
+                                            <td class="text-center"><button class="btn btn-danger btn-inline btn-sm" id="72386">Cancel</button></td>
+                                        </tr>
+                                        <tr class="table__row">
+                                            <th>Sell</th>
+                                            <td class="text-right">1.000 </td>
+                                            <td class="text-right">900.00000 </td>
+                                            <td class="text-right pr-4">900.00000 </td>
+                                            <td>2018-02-26</td>
+                                            <td class="text-center"><button class="btn btn-danger btn-inline btn-sm" id="65990">Cancel</button></td>
+                                        </tr>
+                                        <tr class="table__row">
+                                            <th>Sell</th>
+                                            <td class="text-right">1.000 </td>
+                                            <td class="text-right">123.00000 </td>
+                                            <td class="text-right pr-4">123.00000 </td>
+                                            <td>2018-02-26</td>
+                                            <td class="text-center"><button class="btn btn-danger btn-inline btn-sm" id="64816">Cancel</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div></div>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="main-col col-12 col-xl-3">
+        <div class="form-group" id="oder_ticker_title">
+            <label for="">Order Book</label>
+        </div>
+        <div class="order-book scrollbar" id="style-3">
+            <div class="row">
+                <div class="sell col-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-3 colmn-1 heading">Asks</div>
+                        <div class="col-4 colmn-2 heading">Amount</div>
+                        <div class="col-4 colmn-3 heading">Value</div>
+                    </div>
+                    <div class="row entry-row orderask">
+                    </div>
+                </div>
+                <div class="buy col-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-3 colmn-1 heading">Bids</div>
+                        <div class="col-4 colmn-2 heading">Amount</div>
+                        <div class="col-4 colmn-3 heading">Value</div>
+                    </div>
+                    <div class="row entry-row orderbid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" id="oder_ticker_title">
+            <label for="">Trade History</label>
+        </div>
+        <div class="order-book scrollbar" id="style-4">
+            <div class="row">
+                <div class="sell col-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-3 colmn-1 heading">Size</div>
+                        <div class="col-4 colmn-2 heading">Price</div>
+                        <div class="col-4 colmn-3 heading">Time</div>
+                    </div>
+                    <div class="row entry-row orderhistory">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- The Modal -->
+<div id="signupmodal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header" align="center">
+            <img class="" id="img_logo" src="./img/nexdex_logo.png">
+        </div>
+        <span class="close"></span>
+        <form id="signup_form" role="login">
+            <input type="text" name="sign_username" id="signup_username" placeholder="User" required class="form-control input-lg" autocomplete="off" value="" />
+            <input type="email" name="sign_email" id="signup_email" placeholder="Email" required class="form-control input-lg" autocomplete="off" value="" />
+            <input type="password" class="form-control input-lg" id="sign_password" name="sign_password" placeholder="Password" autocomplete="off" required="" />
+            <input type="password" class="form-control input-lg" id="sign_cofirm_password" name="sign_cofirm_password" placeholder="Confirm Password" autocomplete="off" required="" />
+            <input type="hidden" class="form-control input-lg" id="wallet_address" name="new_address" autocomplete="off" required="" />
+            <div class="alert alert-info alert-dismissible" role="alert">
+                * Below is your seed. Please keep it.
+            </div>
+            <input type="text" class="form-control input-lg" id="wallet_seed" name="new_seed" autocomplete="off" required="" />
+            <div class="alert alert-warning alert-dismissible captcha-alert" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0px;">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                <span class="captcha-alert-text"></span>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LfSG0UUAAAAAF-oX4z01Rb4GzUG9kMVGJZzWSY0"></div>
+            <a onclick="isCaptcha( 'signup')" class="btn btn-primary" style="margin-top: 10px; margin-left: 32%;color:white;">Sign up</a>
+        </form>
+    </div>
+
+</div>
+<!-- login -->
+<!-- The Modal -->
+<div id="loginmodal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header" align="center">
+            <img class="" id="img_logo" src="./img/nexdex_logo.png">
+        </div>
+        <span class="close"></span>
+        <form id="login_form" role="login">
+            <!-- <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" /> -->
+            <input type="email" name="log_email" id="log_email" placeholder="Email" autocomplete="off" required class="form-control input-lg" value="" />
+            <input type="password" class="form-control input-lg" id="log_password" name="log_password" placeholder="Password" required="" />
+            <!-- <div class="pwstrength_viewport_progress"></div> -->
+            <div class="alert alert-warning alert-dismissible captcha-log" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0px;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                <span class="captcha-log-text"></span>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LfSG0UUAAAAAF-oX4z01Rb4GzUG9kMVGJZzWSY0"></div>
+            <a onclick="isCaptcha( 'login')" class="btn btn-primary" style="margin-top: 10px; margin-left: 32%;color:white;">Log In</a>
+        </form>
+    </div>
+</div>
+
+<!-- Google Captcha-->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+<!-- captcha end -->
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript" src="js/lib/highcharts.js"></script>
+<script type="text/javascript" src="js/lib/dark_theme.js"></script>
+<script type="text/javascript" src="js/lib/jquery.ajax.submit.js"></script>
+<script type="text/javascript" src="js/custom_chart.js"></script>
+<script type="text/javascript" src="js/custom_dropdown.js"></script>
+<!-- qr code -->
+<script type="text/javascript" src="js/lib/qrcode.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery-qrcode-0.14.0.js"></script>
+<script type="text/javascript" src="js/eth/custom.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).delegate('.open', 'click', function(event) {
+            $(this).addClass('oppenned');
+            event.stopPropagation();
+        })
+        $(document).delegate('body', 'click', function(event) {
+            $('.open').removeClass('oppenned');
+        })
+        $(document).delegate('.cls', 'click', function(event) {
+            $('.open').removeClass('oppenned');
+            event.stopPropagation();
+        });
+    });
+    $("#datetime3").datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',
+        autoclose: true,
+        todayBtn: true
+    });
+    $('.btn-toggle').click(function() {
+        $(this).find('.btn').toggleClass('active');
+        var buy = $(".btn-toggle button:first-child");
+        var sell = $(".btn-toggle button:last-child");
+        sell.toggleClass('btn-danger');
+        buy.toggleClass('btn-primary');
+    });
+    var wallet = localStorage.getItem('token');
+    $('#user_addr').text(wallet.slice(0, 10) + '...');
+    $("#user_addr").attr('href', 'https://ropsten.etherscan.io/address/' + wallet);
+</script>

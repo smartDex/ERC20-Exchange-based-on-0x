@@ -1,0 +1,140 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-custom">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <a class="navbar-brand" href="#/" ui-sref='/'>
+        <img src="./img/nexdex_logo.png" class="" />
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link nav_item" href="#/" ui-sref="/">Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav_item" href="#/market" ui-sref="market">Exchange</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav_item" ui-sref="home({'#': 'howto'})">How to</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav_item" ui-sref="home({'#': 'faq'})">FAQ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav_item" ui-sref="home({'#': 'fee'})">Fees</a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-md-0">
+            <a class="nav-link nav_item" id="openlogin">Sign In</a>|
+            <a class="nav-link nav_item" id="opensignup">Sign Up</a>
+        </div>
+    </div>
+</nav>
+
+<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+<div id="wrapper">
+
+    <div id="container">
+        <div class="content-element" style="display: block;">
+
+            <div class="homepage">
+
+                <div class="h1-box">
+                    <h1>
+                        New Generation of<br />Decentralized Crypto Exchange
+                    </h1>
+                    <div class="button-box">
+                        <a href="#/market" data-href="start" class="btn btn-lg btn-primary">
+                                View Exchange
+                            </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- The Modal -->
+<div id="signupmodal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header" align="center">
+            <img class="" id="img_logo" src="./img/nexdex_logo.png">
+        </div>
+        <span class="close"></span>
+        <!-- <div class="container" id="signup">
+                    <div class="row">
+                        <section class="sign-form"> -->
+        <form id="signup_form" role="login">
+            <input type="text" name="sign_username" id="signup_username" placeholder="User" required class="form-control input-lg" autocomplete="off" value="" />
+            <input type="email" name="sign_email" id="signup_email" placeholder="Email" required class="form-control input-lg" autocomplete="off" value="" />
+            <input type="password" class="form-control input-lg" id="sign_password" name="sign_password" placeholder="Password" autocomplete="off" required="" />
+            <input type="password" class="form-control input-lg" id="sign_cofirm_password" name="sign_cofirm_password" placeholder="Confirm Password" autocomplete="off" required="" />
+            <input type="hidden" class="form-control input-lg" id="wallet_address" name="new_address" autocomplete="off" required="" />
+            <div class="alert alert-info alert-dismissible" role="alert">
+                * Below is your seed. Please keep it.
+            </div>
+            <input type="text" class="form-control input-lg" id="wallet_seed" name="new_seed" autocomplete="off" required="" />
+            <div class="alert alert-warning alert-dismissible captcha-alert" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0px;">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                <span class="captcha-alert-text"></span>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LfSG0UUAAAAAF-oX4z01Rb4GzUG9kMVGJZzWSY0"></div>
+            <a onclick="isCaptcha('signup')" class="btn btn-primary" style="margin-top: 10px; margin-left: 32%;color:white;">Sign up</a>
+        </form>
+        <!-- </section>  
+                    </div>
+                </div> -->
+    </div>
+
+</div>
+<!-- login -->
+<!-- The Modal -->
+<div id="loginmodal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header" align="center">
+            <img class="" id="img_logo" src="./img/nexdex_logo.png">
+        </div>
+        <span class="close"></span>
+        <form id="login_form" ng-submit="vm.login()" role="login">
+            <!-- <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" /> -->
+            <input type="email" name="log_email" id="log_email" placeholder="Email" autocomplete="off" ng-pattern="eml_add" required class="form-control input-lg" value="" />
+            <input type="password" class="form-control input-lg" id="log_password" name="log_password" placeholder="Password" required="" />
+            <!-- <div class="pwstrength_viewport_progress"></div> -->
+            <div class="alert alert-warning alert-dismissible captcha-log" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0px;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                <span class="captcha-log-text"></span>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LfSG0UUAAAAAF-oX4z01Rb4GzUG9kMVGJZzWSY0"></div>
+
+            <!-- <a href="" class="btn btn-primary" style="margin-top: 10px;margin-left: 32%;margin-bottom: 10px;">Sign in</a> -->
+            <!-- <div>
+                        <a href="#">Forgot Password?</a>
+                    </div> -->
+            <a onclick="isCaptcha('login')" class="btn btn-primary" style="margin-top: 10px; margin-left: 32%;color:white;">Log In</a>
+        </form>
+    </div>
+
+</div>
+
+
+<!-- Google Captcha-->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+<!-- captcha end -->
+<script type="text/javascript" src="js/eth/custom.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+
+<script>
+    newWallet();
+</script>

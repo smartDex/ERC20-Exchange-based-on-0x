@@ -1,0 +1,25 @@
+{
+  "name": "trading_site",
+  "description": "\"ERC20 Token Trading Site\"",
+  "main": "index.js",
+  "authors": [
+    "Ura"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "trading",
+    "exchange"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^1.0.15",
+    "angular-recaptcha": "^4.1.2"
+  }
+}
